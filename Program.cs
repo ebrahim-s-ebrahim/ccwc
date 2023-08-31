@@ -34,8 +34,22 @@ namespace ccwc
 
             rootCommand.SetHandler(CountHandler, fileArgument, countBytesOption, countWordsOption, countLinesOption);
 
-            return await rootCommand.InvokeAsync(args);
+            bool exitRequested = false;
+            while (!exitRequested)
+            {
+                var commandInput = PromptForCommand();
 
+                if (commandInput.Equals("exit", StringComparison.OrdinalIgnoreCase))
+                {
+                    exitRequested = true;
+                }
+                else
+                {
+                    await rootCommand.InvokeAsync(commandInput);
+                }
+            }
+
+            return 0;
         }
 
 
@@ -102,6 +116,13 @@ namespace ccwc
             }
 
             return bytes;
+        }
+
+        static string PromptForCommand()
+        {
+            Console.WriteLine("Enter the command and options (or type 'exit' to quit):");
+            var commandInput = Console.ReadLine();
+            return commandInput;
         }
     }
 
