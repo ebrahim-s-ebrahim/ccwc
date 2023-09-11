@@ -1,7 +1,4 @@
 ﻿using System.CommandLine;
-using System.CommandLine.Invocation;
-using System.IO;
-using System.IO.Pipes;
 using System.Text.RegularExpressions;
 
 namespace mywc;
