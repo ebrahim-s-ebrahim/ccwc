@@ -1,10 +1,10 @@
-# ccwc
+# mywc
 
 a command line tool for counting bytes, words and lines in a file.
 
 ## Usage
 ```cmd
-  ccwc <option> <file path>
+  mywc <file path> <option>
 ```
 
 #### Options
